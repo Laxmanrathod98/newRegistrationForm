@@ -1,18 +1,28 @@
-<div >
-    <h1>Login Form</h1>
-</div>
-<form   [formGroup]="loginForm" (ngSubmit)="collectData()"> 
-    <div class="form-group col-md-6" >
-      <label>Email address</label>
-      <input type="email"  class="form-control"  formControlName="email" placeholder="Enter email">
-      <span id="error" *ngIf="email.invalid && email.touched">Email field is requied</span>
-    </div>
-    <div class="form-group col-md-6">
-      <label>Password</label>
-      <input type="password" #first class="form-control"  formControlName="firstpwd" placeholder="Password">
-      <span id="error" *ngIf="firstpwd.invalid && firstpwd.touched"> Password is requied && minimum length is 8</span>
-    </div>
-    <button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary">Login</button>
-    <button type="submit" (click)="onRegister()" class="btn btn-primary">Register</button>
-</form>
-  
+<section id="cover" class="min-vh-100">
+  <div id="cover-caption">
+      <div class="container">
+          <div class="row text-white">
+              <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+                  <h1 class="display-3 py-2 text-truncate">Login Form</h1>
+                  <div class="px-2">
+                      <form [formGroup]="loginForm" class="justify-content-center" (ngSubmit)="collectData()">
+                          <div class="form-group">
+                            <label>Email address</label>
+                            <input type="email"  class="form-control"  formControlName="email" placeholder="Enter email">
+                            <span id="error" *ngIf="email.invalid && email.touched">Email field is requied</span>
+                            </div>
+                          <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" #first class="form-control"  formControlName="firstpwd" placeholder="Password">
+                            <span id="error" *ngIf="firstpwd.invalid && firstpwd.touched"> Password is requied && minimum length is 8</span>
+                          </div>
+                          <button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary">Login</button> &nbsp; 
+                          <button type="submit" (click)="onRegister()" class="btn btn-primary">Register</button> <br><br>
+                          <span id="demo"></span>
+                        </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  </section>

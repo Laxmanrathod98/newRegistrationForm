@@ -5,10 +5,10 @@ import { HttpClient } from '@angular/common/http'
   providedIn: 'root'
 })
 export class RegistrationService {
-
   constructor(private http:HttpClient) { }
   url='http://localhost:8000/enroll'
   enroll(data){
+    console.log(data);
     return this.http.post<any>(this.url,data)  
   }
   data;
@@ -16,5 +16,10 @@ export class RegistrationService {
   enrollData(data){
     this.urlGet=`http://localhost:8000/enroll/${data}`
     return this.http.get<any>(this.urlGet);  
+  }
+  verifyData(data){
+    console.log(data);
+    this.urlGet=`http://localhost:8000/enroll/${data}`
+    return this.http.patch<any>(this.urlGet,data);  
   }
 }

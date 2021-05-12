@@ -1,24 +1,38 @@
- <div>
-   <h1>Registration Form</h1>
- </div>
- <hr>
- <form [formGroup]="registrationForm"> 
-    <div class="form-group col-md-6" >
-      <label>Email address</label>
-      <input type="email" class="form-control"  formControlName="email" placeholder="Enter email">
-      <span id="error" *ngIf="email.invalid && email.touched">Email field is requied</span>
-    </div>
-    <div class="form-group col-md-6">
-      <label>Password</label>
-      <input type="password" #first class="form-control"  formControlName="firstpwd" placeholder="Password">
-      <span id="error" *ngIf="firstpwd.invalid && firstpwd.touched"> Password is requied && minimum length is 8</span>
-    </div>
-    <div class="form-group col-md-6">
-        <label>conform password</label>
-        <input type="password" #second class="form-control" formControlName="secondpwd" placeholder="Password">
-        <span id="error" *ngIf="first.value != second.value && secondpwd.touched">Password is not matching</span>
-    </div>
-    <button type="submit" (click)="collectData()" [disabled]="!registrationForm.valid" class="btn btn-primary">Register</button>
-    <button type="submit" (click)="onLogin()"  class="btn btn-primary">Login</button>
-  </form>
-  
+<section id="cover" class="min-vh-100">
+  <div id="cover-caption">
+      <div class="container">
+          <div class="row text-white">
+              <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+                  <h1 class="display-4 py-2 text-truncate">Registration Form</h1>
+                  <div class="px-2">
+                      <form [formGroup]="registrationForm" class="justify-content-center">
+                          <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" class="form-control"  formControlName="name" placeholder="Enter name">
+                            <span id="error" *ngIf="name.invalid && name.touched">Name field is requied</span>
+                          </div>
+                          <div class="form-group">
+                            <label>Email address</label>
+                            <input type="email" class="form-control"  formControlName="email" placeholder="Enter email">
+                            <span id="error" *ngIf="email.invalid && email.touched">Email field is requied</span>
+                            <span id="error" *ngIf="token==1">Email is already exit</span>  
+                          </div>
+                          <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" #first class="form-control"  formControlName="firstpwd" placeholder="Password" (click)="invalidEmail()">
+                            <span id="error" *ngIf="firstpwd.invalid && firstpwd.touched"> Password is requied && minimum length is 8</span> 
+                        </div>
+                        <div  class="form-group">
+                            <label>conform password</label>
+                            <input type="password" #second class="form-control" formControlName="secondpwd" placeholder="Password">
+                            <span id="error" *ngIf="first.value != second.value && secondpwd.touched">Password is not matching</span>
+                      </div>
+                      <button type="submit" (click)="collectData()" (click)="localStorage()" [disabled]="!registrationForm.valid" class="btn btn-primary btn-lg" >Register</button>&nbsp;
+                      <button type="submit" (click)="onLogin()"  class="btn btn-primary btn-lg">Login</button>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
